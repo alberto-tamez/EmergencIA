@@ -1,0 +1,26 @@
+# Ignore node_modules directory
+node_modules
+
+# Ignore logs
+*.log
+
+# Ignore the npm debug log
+npm-debug.log
+
+# Ignore .env file which might contain sensitive information
+.env
+
+# Ignore any build artifacts
+dist
+
+# Ignore local IDE specific settings files
+.idea/
+*.iml
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore Mac system files
+.DS_Store

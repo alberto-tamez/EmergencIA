@@ -1,0 +1,30 @@
+{
+  "name": "graphql_learning",
+  "version": "1.0.0",
+  "description": "Learning how to create GraphQL APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "npm run compile && node ./dist/index.js",
+    "compile": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.6.3",
+    "prisma": "^5.3.1",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "@prisma/client": "^5.3.1",
+    "express": "^4.18.2",
+    "mssql": "^9.3.2",
+    "nodemon": "^3.0.1"
+  },
+  "keywords": []
+}

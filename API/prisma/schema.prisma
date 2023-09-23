@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Posts {
+  id      Int     @id(map: "PK__Posts__3213E83FB80C47FA") @default(autoincrement())
+  userId  Int?
+  title   String  @db.NVarChar(255)
+  content String? @db.NVarChar(Max)
+  Users   Users?  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK__Posts__userId__5EBF139D")
+}
+
+model Users {
+  id       Int     @id(map: "PK__Users__3213E83F9F9041F7") @default(autoincrement())
+  username String  @db.NVarChar(255)
+  email    String  @db.NVarChar(255)
+  password String  @db.NVarChar(255)
+  Posts    Posts[]
+}
