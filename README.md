@@ -1,7 +1,6 @@
 # "EmergencIA" - Operador de Emergencia Inteligente
-_
-Nunca habia sido tan facil salvar vidas
-_
+
+## ***Nunca habia sido tan facil salvar vidas***
 Bienvenidos al repositorio oficial del proyecto "EmergencIA" presentado en HackMTY 2023. Este proyecto tiene como objetivo proporcionar una solución innovadora para situaciones de riesgo, mejorando la eficiencia y la precisión en la atención de llamadas de emergencia. 
 
 ## Descripción del Proyecto
