@@ -38,46 +38,61 @@ def process_transcript():
     caller_time = data['time']
     caller_phone = data['phone']
 
-    try:
-        caller_name = getName(transcript, candidate_labels=["Nombre"])
-        caller_location = getLocation(transcript, candidate_labels=["Ubicacion"])
-        caller_situation = getSituation(transcript)
-        caller_risk = getRisk(transcript, candidate_labels=["Riesgo"])
-        caller_sentiment = getEmotions(transcript)
-        situation_type = getType(transcript, candidate_labels=["Incendio", "Robo", "Salud", "Otro"])
+    
+    caller_name = getName(transcript, candidate_labels=["Nombre"])
+    caller_location = getLocation(transcript, candidate_labels=["Ubicacion"])
+    caller_situation = getSituation(transcript)
+    caller_risk = getRisk(transcript, candidate_labels=["Riesgo"])
+    caller_sentiment = getEmotions(transcript)
+    situation_type = getType(transcript, candidate_labels=["Incendio", "Robo", "Salud", "Otro"])
 
-        # Set up recommended service depending on situation type
-        recommended_service = "Policía"
-        if situation_type['labels'][0] == "Incendio":
-            recommended_service = "Bomberos"
-        elif situation_type['labels'][0] == "Salud":
-            recommended_service = "Ambulancia"
+    # Set up recommended service depending on situation type
+    recommended_service = "Policía"
+    if situation_type['labels'][0] == "Incendio":
+        recommended_service = "Bomberos"
+    elif situation_type['labels'][0] == "Salud":
+        recommended_service = "Ambulancia"
 
-        possible_emotions = {
-            "positive": ["alivio", "alegría", "amor", "sorpresa", "neutral", "felicidad"],
-            "negative": ["enojo", "tristeza", "miedo", "asco", "negativo", "preocupación", "odio"],
+    possible_emotions = {
+        "positive": ["alivio", "alegría", "amor", "sorpresa", "neutral", "felicidad"],
+        "negative": ["enojo", "tristeza", "miedo", "asco", "negativo", "preocupación", "odio"],
+    }
+
+    caller_emotions = random.sample(possible_emotions[caller_sentiment], 3)
+
+    headers = {'Content-Type': 'application/json'}
+    url = 'https://60d5-131-178-102-184.ngrok-free.app'
+
+    variables = {
+        "name": caller_name,
+        "phone": caller_phone,
+        "timeEnded": caller_time,
+        "emotionName": caller_emotions,
+        "callTranscription": transcript,
+        "timeCalled": caller_time,
+        "emotionScore": 1,
+        "callerRisk": caller_risk,
+        "situationType": situation_type,
+        "assesmentTime": caller_time,
+        "recommendedAction": recommended_service,
+        "callerSituation": caller_situation,
+        "callerLocation": caller_location,
         }
-
-        caller_emotions = random.sample(possible_emotions[caller_sentiment], 3)
-
-        result = {
-            "caller_name": caller_name,
-            "caller_location": caller_location,
-            "caller_situation": caller_situation[0]['summary_text'],
-            "caller_risk": caller_risk['scores'][0],
-            "time_called": caller_time,
-            "caller_emotions": caller_emotions,
-            "situation_type": situation_type,
-            "recommended_service": recommended_service,
-            "caller_phone": caller_phone,
-            "full_transcript": transcript
+    
+    mutation = """
+    mutation CreateUserCallDetails($name: String, $phone: String, $timeEnded: DateTime, $emotionName: String, $callTranscription: String, $timeCalled: DateTime, $emotionScore: Float, $callerRisk: Float, $situationType: String, $assessmentTime: DateTime, $recommendedAction: String, $callerSituation: String, $callerLocation: String) {
+        createUserCallDetails(name: $name, phone: $phone, time_ended: $timeEnded, emotion_name: $emotionName, call_transcription: $callTranscription, time_called: $timeCalled, emotion_score: $emotionScore, caller_risk: $callerRisk, situation_type: $situationType, assessment_time: $assessmentTime, recommended_action: $recommendedAction, caller_situation: $callerSituation, caller_location: $callerLocation) {
+        call {
+            callID
         }
+      }
+    }
+    """
 
-        print(result)
-        return jsonify(result), 200
+    response = requests.post(url, json={'query': mutation, 'variables': variables}, headers=headers)
 
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    print(response.text)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000)
+    
