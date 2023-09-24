@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from transformers import pipeline, TFAutoModelForSequenceClassification, AutoTokenizer
 import random
+import requests
+import json
 
 app = Flask(__name__)
 
