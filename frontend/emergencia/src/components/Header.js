@@ -2,8 +2,6 @@ import Box from '@mui/material/Box';
 import Logo from '../img/noun-phone-165755.png';
 import { Typography } from '@mui/material';
 
-
-
 function Header(){
     return(
         <Box sx={{

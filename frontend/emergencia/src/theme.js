@@ -4,9 +4,9 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
     typography: {
         h2: {
-            fontWeight: 300,
-            fontFamily: 'Open Sans Condensed, sans-serif',
+            fontFamily: 'Encode Sans Condensed, Comic Sans MS'
         },
+        fontFamily: 'Open Sans',
     },
 });
 
