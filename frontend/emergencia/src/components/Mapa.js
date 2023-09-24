@@ -8,7 +8,7 @@ export default class Maps extends Component {
 
     return (
       <div className="container">
-        <div style={{ height: "120px", width: "150px" }}>
+        <div style={{ height: "400px", width: "100%" }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: apiKey }}
             defaultCenter={{
