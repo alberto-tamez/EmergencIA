@@ -3,14 +3,14 @@ import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 
 const emocionStyle = {
-  height: 30,
-  width: 130,
+  height: 40,
+  width: 150,
   bgcolor: '#E6E6E6',
   borderRadius: 3,
   display: 'flex',
   alignItems: 'center',
   paddingLeft: 1,
-  gap: 1,
+  gap: 1.5,
 };
 
 const colorStyle = (color) => ({
@@ -26,28 +26,28 @@ function StatusSwitch({ status }) {
       return (
         <>
           <Box sx={colorStyle('#ffff00')}></Box>
-          <Typography>Recibido</Typography>
+          <Typography style={{fontSize: 20}}>Recibido</Typography>
         </>
       );
     case 2:
       return (
         <>
           <Box sx={colorStyle('#ffa500')}></Box>
-          <Typography>En Proceso</Typography>
+          <Typography style={{fontSize: 20}}>En Proceso</Typography>
         </>
       );
     case 3:
       return (
         <>
           <Box sx={colorStyle('#008000')}></Box>
-          <Typography>Terminado</Typography>
+          <Typography style={{fontSize: 20}}>Terminado</Typography>
         </>
       );
     case 4:
       return (
         <>
           <Box sx={colorStyle('#808080')}></Box>
-          <Typography>Archivado</Typography>
+          <Typography style={{fontSize: 20}}>Archivado</Typography>
         </>
       );
     default:
