@@ -3,20 +3,13 @@ import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 
 
+
+const {typeDefs, Timestamp} = require('./Models/models');
+
 const prisma = new PrismaClient();
 
-const typeDefs = `
-  type User {
-    email: String!
-    name: String
-  }
-
-  type Query {
-    allUsers: [User!]!
-  }
-`;
-
 const resolvers = {
+    Timestamp,
     Query: {
         allUsers: () => {
             return prisma.users.findMany();

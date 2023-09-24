@@ -12,17 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const client_1 = require("@prisma/client");
 const server_1 = require("@apollo/server");
 const standalone_1 = require("@apollo/server/standalone");
+const typeDefs = require('./Models/models');
 const prisma = new client_1.PrismaClient();
-const typeDefs = `
-  type User {
-    email: String!
-    name: String
-  }
-
-  type Query {
-    allUsers: [User!]!
-  }
-`;
 const resolvers = {
     Query: {
         allUsers: () => {
