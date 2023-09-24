@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import Maps from "../Mapas/Mapa.js";
+import Maps from "./components/Mapas/Mapa.js";
 
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
           <NivelRiesgo nivel = {0.4}/>
           <Emociones/>
           <Status/>
+          <Maps/>
         </Box>
     </>
 
