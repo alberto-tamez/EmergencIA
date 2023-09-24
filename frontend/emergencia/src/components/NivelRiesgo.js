@@ -22,6 +22,7 @@ function NivelRiesgo(props){
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'column',
+            border:1,
         }}>
             <Box sx={{
                 bgcolor: nivelOpaciadad(nivel,'#540804',0.9),
