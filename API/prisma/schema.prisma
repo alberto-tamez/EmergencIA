@@ -7,18 +7,47 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Posts {
-  id      Int     @id(map: "PK__Posts__3213E83FB80C47FA") @default(autoincrement())
-  userId  Int?
-  title   String  @db.NVarChar(255)
-  content String? @db.NVarChar(Max)
-  Users   Users?  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK__Posts__userId__5EBF139D")
+model Users {
+  userID Int     @id(map: "PK__Users__CB9A1CDF6C131D20") @default(autoincrement())
+  name   String? @db.VarChar(255)
+  phone  String? @db.VarChar(15)
+  Calls  Calls[]
 }
 
-model Users {
-  id       Int     @id(map: "PK__Users__3213E83F9F9041F7") @default(autoincrement())
-  username String  @db.NVarChar(255)
-  email    String  @db.NVarChar(255)
-  password String  @db.NVarChar(255)
-  Posts    Posts[]
+model Calls {
+  callID            Int                 @id(map: "PK__Calls__180B0E54314A329E") @default(autoincrement())
+  userID            Int?
+  time_called       DateTime?           @db.DateTime
+  call_ended        DateTime?           @db.DateTime
+  caller_location   String?             @db.VarChar(255)
+  Users             Users?              @relation(fields: [userID], references: [userID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Calls__userID__5EBF139D")
+  Emotion_Details   Emotion_Details[]
+  Threat_Assessment Threat_Assessment[]
+  Transcriptions    Transcriptions[]
+}
+
+model Emotion_Details {
+  detailID      Int     @id(map: "PK__Emotion___8307783984021112") @default(autoincrement())
+  callID        Int?
+  emotion_name  String? @db.VarChar(255)
+  emotion_score Float?
+  Calls         Calls?  @relation(fields: [callID], references: [callID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Emotion_D__callI__04E4BC85")
+}
+
+model Threat_Assessment {
+  assessmentID       Int       @id(map: "PK__Threat_A__C7742752D9B77BDD") @default(autoincrement())
+  callID             Int?
+  caller_risk        Float?
+  assessment_time    DateTime? @db.DateTime
+  situation_type     String?   @db.VarChar(1000)
+  recommended_action String?   @db.VarChar(1000)
+  caller_situation   String?   @db.VarChar(1000)
+  Calls              Calls?    @relation(fields: [callID], references: [callID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Threat_As__callI__0B91BA14")
+}
+
+model Transcriptions {
+  transcriptionID    Int     @id(map: "PK__Transcri__25977A01588F1B10") @default(autoincrement())
+  callID             Int?
+  call_transcription String? @db.Text
+  Calls              Calls?  @relation(fields: [callID], references: [callID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Transcrip__callI__619B8048")
 }
