@@ -70,11 +70,12 @@ function Status() {
     <Box
       sx={{
         display: 'flex',
-        width: 175,
+        width: 150,
         alignItems: 'center',
         justifyContent: 'center',
       }}
       onClick={counterIncrease}
+      style={{cursor:'pointer'}}
     >
       <Box sx={emocionStyle}>
         <StatusSwitch status={counter} />

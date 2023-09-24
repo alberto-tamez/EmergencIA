@@ -6,7 +6,7 @@ const theme = createTheme({
         h2: {
             fontFamily: 'Encode Sans Condensed, Comic Sans MS'
         },
-        fontFamily: 'Open Sans',
+        fontFamily: 'Raleway, Comic Sans MS'
     },
 });
 

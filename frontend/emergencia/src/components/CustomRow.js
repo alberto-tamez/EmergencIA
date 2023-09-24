@@ -5,7 +5,7 @@ import Status from "./Status";
 import Box from '@mui/material/Box';
 import NivelRiesgo from "./NivelRiesgo";
 import Maps from "./Mapa.js";
-import DocLogo from '../img/document.png';
+import Transcript from './Transcript';
 
 const cellCenter = {
     display: 'flex',
@@ -23,7 +23,7 @@ function CustomRow(props){
             <TableCell align="center"><NivelRiesgo nivel = {0.5}/></TableCell>
             <TableCell align="center"><Status/></TableCell>
             {/* Arreglar la imagen */}
-            <TableCell align="center"><img src={DocLogo} alt='transcript' width="100"/></TableCell>
+            <TableCell align="center"><Transcript/></TableCell>
         </TableRow>
     );
 }

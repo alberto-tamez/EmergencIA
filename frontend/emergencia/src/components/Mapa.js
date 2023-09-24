@@ -8,14 +8,14 @@ export default class Maps extends Component {
 
     return (
       <div className="container">
-        <div style={{ height: "120px", width: "150px" }}>
+        <div style={{ height: "120px", width: "300px" }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: apiKey }}
             defaultCenter={{
               lat: 25.651619148656884,
               lng: -100.28969426686491,
             }}
-            defaultZoom={11.90}
+            defaultZoom={10.60}
           >
             {/* Marcador Rojo */}
             <div
@@ -43,6 +43,7 @@ export default class Maps extends Component {
               />
             </div>
           </GoogleMapReact>
+          <div style={{padding: '5px 0 5px 0'}}>Direccion: </div>
         </div>
       </div>
     );

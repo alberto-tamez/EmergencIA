@@ -37,7 +37,7 @@ function Emociones() {
     <Box
       sx={{
         height: 150,
-        width: 250,
+        width: 150,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
