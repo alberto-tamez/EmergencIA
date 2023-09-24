@@ -1,0 +1,28 @@
+.App {
+    text-align: center;
+}
+
+.person {
+    background-color: lightgray;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+}
+.descripccion {
+    background-color: lightgray;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+
+
+
+}
