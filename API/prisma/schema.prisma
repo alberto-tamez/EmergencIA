@@ -8,51 +8,46 @@ datasource db {
 }
 
 model Users {
-  userID  Int     @id(map: "PK__Users__CB9A1CDFA2C4BD38")
-  name    String? @db.VarChar(255)
-  phone   String? @db.VarChar(15)
-  address String? @db.VarChar(255)
-  Calls   Calls[]
+  userID Int     @id(map: "PK__Users__CB9A1CDF6C131D20") @default(autoincrement())
+  name   String? @db.VarChar(255)
+  phone  String? @db.VarChar(15)
+  Calls  Calls[]
 }
 
 model Calls {
-  callID              Int                      @id(map: "PK__Calls__180B0E541BACBCF1")
-  userID              Int?
-  timestamp           Unsupported("timestamp")
-  call_audio_location String?                  @db.VarChar(255)
-  Users               Users?                   @relation(fields: [userID], references: [userID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Calls__userID__5EBF139D")
-  Transcriptions      Transcriptions[]
+  callID            Int                 @id(map: "PK__Calls__180B0E54314A329E") @default(autoincrement())
+  userID            Int?
+  time_called       DateTime?           @db.DateTime
+  call_ended        DateTime?           @db.DateTime
+  caller_location   String?             @db.VarChar(255)
+  Users             Users?              @relation(fields: [userID], references: [userID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Calls__userID__5EBF139D")
+  Emotion_Details   Emotion_Details[]
+  Threat_Assessment Threat_Assessment[]
+  Transcriptions    Transcriptions[]
 }
 
 model Emotion_Details {
-  detailID           Int       @id(map: "PK__Emotion___830778396E1C42C3")
-  emotion_analysisID Int?
-  emotion_name       String?   @db.VarChar(255)
-  emotion_score      Float?
-  Emotions           Emotions? @relation(fields: [emotion_analysisID], references: [emotion_analysisID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Emotion_D__emoti__6754599E")
-}
-
-model Emotions {
-  emotion_analysisID Int                 @id(map: "PK__Emotions__F5CA085A7CF8562C")
-  transcriptionID    Int?
-  source_type        String?             @db.VarChar(255)
-  Emotion_Details    Emotion_Details[]
-  Transcriptions     Transcriptions?     @relation(fields: [transcriptionID], references: [transcriptionID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Emotions__transc__6477ECF3")
-  Threat_Assessment  Threat_Assessment[]
+  detailID      Int     @id(map: "PK__Emotion___8307783984021112") @default(autoincrement())
+  callID        Int?
+  emotion_name  String? @db.VarChar(255)
+  emotion_score Float?
+  Calls         Calls?  @relation(fields: [callID], references: [callID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Emotion_D__callI__04E4BC85")
 }
 
 model Threat_Assessment {
-  assessmentID       Int                      @id(map: "PK__Threat_A__C7742752C090900C")
-  emotion_analysisID Int?
-  threat_level       Int?
-  timestamp          Unsupported("timestamp")
-  Emotions           Emotions?                @relation(fields: [emotion_analysisID], references: [emotion_analysisID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Threat_As__emoti__6A30C649")
+  assessmentID       Int       @id(map: "PK__Threat_A__C7742752D9B77BDD") @default(autoincrement())
+  callID             Int?
+  caller_risk        Float?
+  assessment_time    DateTime? @db.DateTime
+  situation_type     String?   @db.VarChar(1000)
+  recommended_action String?   @db.VarChar(1000)
+  caller_situation   String?   @db.VarChar(1000)
+  Calls              Calls?    @relation(fields: [callID], references: [callID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Threat_As__callI__0B91BA14")
 }
 
 model Transcriptions {
-  transcriptionID    Int        @id(map: "PK__Transcri__25977A01CCDB8EF5")
+  transcriptionID    Int     @id(map: "PK__Transcri__25977A01588F1B10") @default(autoincrement())
   callID             Int?
-  transcription_text String?    @db.Text
-  Emotions           Emotions[]
-  Calls              Calls?     @relation(fields: [callID], references: [callID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Transcrip__callI__619B8048")
+  call_transcription String? @db.Text
+  Calls              Calls?  @relation(fields: [callID], references: [callID], onDelete: NoAction, onUpdate: NoAction, map: "FK__Transcrip__callI__619B8048")
 }
