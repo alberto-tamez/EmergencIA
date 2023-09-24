@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 
+const action = 'Accion inmediata a tomar';
+
 const emocionStyle = {
   height: 40,
   width: 150,
@@ -73,6 +75,8 @@ function Status() {
         width: 150,
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'column',
+        gap: 1,
       }}
       onClick={counterIncrease}
       style={{cursor:'pointer'}}
@@ -80,6 +84,7 @@ function Status() {
       <Box sx={emocionStyle}>
         <StatusSwitch status={counter} />
       </Box>
+      <Typography style={{fontSize: 15}}>{action}</Typography>
     </Box>
   );
 }

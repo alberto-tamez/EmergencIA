@@ -2,16 +2,9 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Emociones from "./Emociones";
 import Status from "./Status";
-import Box from '@mui/material/Box';
 import NivelRiesgo from "./NivelRiesgo";
 import Maps from "./Mapa.js";
 import Transcript from './Transcript';
-
-const cellCenter = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-}
 
 function CustomRow(props){
     return(

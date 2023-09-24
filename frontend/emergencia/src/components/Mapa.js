@@ -5,6 +5,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 export default class Maps extends Component {
   render() {
     const apiKey = "AIzaSyD0-NXj_4PCe3F22tEmCGIod0D585Jgec8";
+    let dir=' ';
 
     return (
       <div className="container">
@@ -43,7 +44,7 @@ export default class Maps extends Component {
               />
             </div>
           </GoogleMapReact>
-          <div style={{padding: '5px 0 5px 0'}}>Direccion: </div>
+          <div style={{padding: '5px 0 5px 0'}}>Direccion: {dir}</div>
         </div>
       </div>
     );
