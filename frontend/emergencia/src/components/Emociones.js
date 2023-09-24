@@ -43,7 +43,6 @@ function Emociones() {
         justifyContent: 'center',
         flexDirection: 'column',
         gap: 1,
-        border: 1,
       }}
     >
       <Box sx={emocionStyle}>

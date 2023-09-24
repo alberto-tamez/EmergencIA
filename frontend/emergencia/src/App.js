@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import Table from "./components/Table.js";
+import CustomTable from "./components/Table.js";
 // import Maps from "./components/Mapa.js";
 
 
@@ -27,7 +27,7 @@ function App() {
           justifyContent: 'center',
           paddingTop: 5,
           paddingX: 5,
-        }}><Table/></Box>
+        }}><CustomTable/></Box>
 
     </>
 

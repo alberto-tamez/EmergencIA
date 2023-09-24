@@ -70,7 +70,6 @@ function Status() {
     <Box
       sx={{
         display: 'flex',
-        border: 1,
         width: 175,
         alignItems: 'center',
         justifyContent: 'center',
