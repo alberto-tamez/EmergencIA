@@ -33,10 +33,11 @@ function getColor(emocion) {
   return dictionary[emocion];
 }
 
-function Emociones() {
-  const color1 = getColor(emocion1);
-  const color2 = getColor(emocion2);
-  const color3 = getColor(emocion3);
+function Emociones(props) {
+  
+  const color1 = getColor(props.emociones[0]);  
+  const color2 = getColor(props.emociones[1]);
+  const color3 = getColor(props.emociones[2]);
 
   const emocionStyle = {
     height: 30,

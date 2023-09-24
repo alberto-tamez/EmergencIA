@@ -8,7 +8,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 
-let transcript='hola'
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -19,9 +18,9 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
   }));
   
-export default function CustomizedDialogs() {
+export default function CustomizedDialogs(props) {
     const [open, setOpen] = React.useState(false);
-  
+    const transcript = props.transcript;
     const handleClickOpen = () => {
       setOpen(true);
     };
@@ -38,7 +37,7 @@ export default function CustomizedDialogs() {
             aria-labelledby="customized-dialog-title"
             open={open}
         >
-            <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
+            <DialogTitle sx={{ m: 1, p: 2 }} id="customized-dialog-title">
             Transcripción de la llamada
             </DialogTitle>
             <IconButton
@@ -55,7 +54,7 @@ export default function CustomizedDialogs() {
             </IconButton>
             <DialogContent dividers>
             <Typography gutterBottom>
-                {transcript}
+              {transcript}
             </Typography>
             </DialogContent>
         </BootstrapDialog>

@@ -36,7 +36,7 @@ function customTable() {
                 </TableRow>
             </TableHead>
             <TableBody>
-                <CustomRow/>
+                <CustomRow />
             </TableBody>
         </Table>
     </TableContainer>

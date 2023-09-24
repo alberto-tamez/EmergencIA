@@ -1,0 +1,132 @@
+{
+    "users": [
+      {
+        "name": "Gerardo Solis",
+        "phone": "1234567890",
+        "calls": [
+          {
+            "time_called": "2021-08-10T15:23:00Z",
+            "call_ended": "2021-08-10T15:30:00Z",
+            "caller_location": "25.645807474474047, -100.30309921798438",
+            "transcriptions": [
+              {
+                "call_transcription": "Hello, this is John Doe."
+              }
+            ],
+            "emotionDetails": [
+              {
+                "emotion_name": ["alegría", "felicidad", "sorpresa"],
+                "emotion_score": 0.6
+              }
+            ],
+            "threatAssessments": [
+              {
+                "caller_risk": 0.1,
+                "assessment_time": "2021-08-10T16:00:00Z",
+                "situation_type": "Low risk",
+                "recommended_action": "No immediate action required",
+                "caller_situation": "Normal conversation",
+                "timestamp": "2021-08-10T16:01:00Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Domingo Valio",
+        "phone": "5520223324",
+        "calls": [
+          {
+            "time_called": "2021-08-10T15:23:00Z",
+            "call_ended": "2021-08-10T15:30:00Z",
+            "caller_location": "25.653320092618088, -100.34933872130503",
+            "transcriptions": [
+              {
+                "call_transcription": "¡Qué día tan encantador! Me siento alegre, sorprendido y feliz."
+              }
+            ],
+            "emotionDetails": [
+              {
+                "emotion_name": ["alegría", "felicidad", "sorpresa"],
+                "emotion_score": 0.9
+              }
+            ],
+            "threatAssessments": [
+              {
+                "caller_risk": 0.2,
+                "assessment_time": "2021-08-10T16:00:00Z",
+                "situation_type": "Riesgo bajo",
+                "recommended_action": "No se requiere acción inmediata",
+                "caller_situation": "Conversación normal",
+                "timestamp": "2021-08-10T16:01:00Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ximena Ortiz",
+        "phone": "8134657812",
+        "calls": [
+          {
+            "time_called": "2021-08-10T16:00:00Z",
+            "call_ended": "2021-08-10T16:10:00Z",
+            "caller_location": "25.6459731822374, -100.34742428409473",
+            "transcriptions": [
+              {
+                "call_transcription": "Hoy me siento preocupada, enojada y triste."
+              }
+            ],
+            "emotionDetails": [
+              {
+                "emotion_name": ["preocupación", "enojo", "tristeza"],
+                "emotion_score": 0.2
+              }
+            ],
+            "threatAssessments": [
+              {
+                "caller_risk": 0.8,
+                "assessment_time": "2021-08-10T17:00:00Z",
+                "situation_type": "Riesgo alto",
+                "recommended_action": "Necesidad de intervención inmediata",
+                "caller_situation": "Conversación tensa",
+                "timestamp": "2021-08-10T17:01:00Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Carlos García",
+        "phone": "1122334455",
+        "calls": [
+          {
+            "time_called": "2021-08-10T17:15:00Z",
+            "call_ended": "2021-08-10T17:22:00Z",
+            "caller_location": "25.656524978910866, -100.31624630666948",
+            "transcriptions": [
+              {
+                "call_transcription": "Hoy siento un gran alivio, me siento muy feliz y neutral."
+              }
+            ],
+            "emotionDetails": [
+              {
+                "emotion_name": ["alivio", "felicidad", "neutral"],
+                "emotion_score": 0.7
+              }
+            ],
+            "threatAssessments": [
+              {
+                "caller_risk": 0.1,
+                "assessment_time": "2021-08-10T18:00:00Z",
+                "situation_type": "Riesgo bajo",
+                "recommended_action": "No se requiere acción inmediata",
+                "caller_situation": "Conversación normal",
+                "timestamp": "2021-08-10T18:01:00Z"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

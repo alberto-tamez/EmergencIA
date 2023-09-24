@@ -5,7 +5,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 export default class Maps extends Component {
   render() {
     const apiKey = "AIzaSyD0-NXj_4PCe3F22tEmCGIod0D585Jgec8";
-    let dir=' ';
+    let dir='Calle 1, Colonia 1, Ciudad 1, Estado 1';
 
     return (
       <div className="container">

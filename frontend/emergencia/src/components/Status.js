@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 
-const action = 'Accion inmediata a tomar';
-
 const emocionStyle = {
   height: 40,
   width: 150,
@@ -57,9 +55,9 @@ function StatusSwitch({ status }) {
   }
 }
 
-function Status() {
+function Status(props) {
   const [counter, setCounter] = useState(1);
-
+  const action = props.action;
   const counterIncrease = () => {
     if (counter < 4) {
       setCounter(counter + 1); // Update the state to trigger a re-render
