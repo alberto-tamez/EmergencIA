@@ -5,7 +5,7 @@ export const gqlObjects = `#graphql
 scalar Timestamp
 scalar DateTime
 
-type User {
+type Users {
   userID: ID
   name: String
   phone: String
@@ -50,9 +50,58 @@ type Threat_Assessment {
   caller_situation: String
   timestamp: DateTime
 }
+type User {
+    userID: Int!
+    name: String
+    phone: String
+    calls: [Call!]
+  }
+
+type Call {
+    callID: Int!
+    userID: Int!
+    time_called: String
+    call_ended: String
+    caller_location: String
+    user: User!
+    transcriptions: [Transcription!]!
+    emotionDetails: [EmotionDetail!]!
+    threatAssessments: [ThreatAssessment!]!
+  }
+
+ type Transcription {
+    transcriptionID: Int!
+    callID: Int!
+    call_transcription: String
+    call: Call!
+ }
+  
+  type EmotionDetail {
+    detailID: Int!
+    callID: Int!
+    emotion_name: String
+    emotion_score: Float
+    call: Call!
+  }
+
+  type ThreatAssessment {
+    assessmentID: Int!
+    callID: Int!
+    caller_risk: Float
+    assessment_time: String
+    situation_type: String
+    recommended_action: String
+    caller_situation: String
+    timestamp: String
+    call: Call!
+  }
  type Query {
   allUsers: [User]
-  user(id: ID!): User
+  users: [User!]!
+  calls: [Call!]!
+  transcriptions: [Transcription!]!
+  emotionDetails: [EmotionDetail!]!
+  threatAssessments: [ThreatAssessment!]!
 }
 type Mutation {
   createUser(name: String!, phone: String, address: String): User!
@@ -69,8 +118,10 @@ type Mutation {
     situation_type: String,
     recommended_action: String,
     caller_situation: String,
+    caller_location: String
   ): CallDetails!
 }
+
 
 schema {
    query: Query

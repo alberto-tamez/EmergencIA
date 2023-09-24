@@ -12,6 +12,7 @@ export interface CallDetailsArgs {
   recommended_action: string;
   caller_situation: string;
   threat_timestamp: Date;
+  caller_location: string;
 }
 
 export interface CallDetails {

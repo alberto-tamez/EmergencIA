@@ -19,7 +19,30 @@ const resolvers = {
     Query: {
         allUsers: () => {
             return prisma.users.findMany();
-        }
+        },
+        users: () => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.users.findMany(); }),
+        calls: () => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.calls.findMany(); }),
+        transcriptions: () => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.transcriptions.findMany(); }),
+        emotionDetails: () => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.emotion_Details.findMany(); }),
+        threatAssessments: () => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.threat_Assessment.findMany(); }),
+    },
+    User: {
+        calls: (parent) => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.calls.findMany({ where: { userID: parent.userID } }); }),
+    },
+    Call: {
+        user: (parent) => __awaiter(void 0, void 0, void 0, function* () { return parent.userID !== null ? yield prisma.users.findUnique({ where: { userID: parent.userID } }) : null; }),
+        transcriptions: (parent) => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.transcriptions.findMany({ where: { callID: parent.callID } }); }),
+        emotionDetails: (parent) => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.emotion_Details.findMany({ where: { callID: parent.callID } }); }),
+        threatAssessments: (parent) => __awaiter(void 0, void 0, void 0, function* () { return yield prisma.threat_Assessment.findMany({ where: { callID: parent.callID } }); }),
+    },
+    Transcription: {
+        call: (parent) => __awaiter(void 0, void 0, void 0, function* () { return parent.callID !== null ? yield prisma.calls.findUnique({ where: { callID: parent.callID } }) : null; }),
+    },
+    EmotionDetail: {
+        call: (parent) => __awaiter(void 0, void 0, void 0, function* () { return parent.callID !== null ? yield prisma.calls.findUnique({ where: { callID: parent.callID } }) : null; }),
+    },
+    ThreatAssessment: {
+        call: (parent) => __awaiter(void 0, void 0, void 0, function* () { return parent.callID !== null ? yield prisma.calls.findUnique({ where: { callID: parent.callID } }) : null; }),
     },
     Mutation: {
         createUser: (_, args) => __awaiter(void 0, void 0, void 0, function* () {
@@ -44,7 +67,8 @@ const resolvers = {
                 data: {
                     userID: user.userID,
                     time_called: args.time_called,
-                    call_ended: args.time_ended
+                    call_ended: args.time_ended,
+                    caller_location: args.caller_location
                 },
             });
             const transcription = yield prisma.transcriptions.create({
