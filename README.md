@@ -7,6 +7,12 @@ Bienvenidos al repositorio oficial del proyecto "EmergencIA" presentado en HackM
 
 "EmergencIA" es un operador de emergencia inteligente que utiliza tecnologías de vanguardia para gestionar llamadas de emergencia de manera más eficaz. El sistema se encarga de escuchar al llamador en tiempo real a través de Google Cloud Speech y transcribe la llamada a texto.
 
+## Como funciona?
+Cuando los operadores de 911 estan ocupados, las llamadas son redirigidas a EmergencIA.
+El llamador utiliza lenguaje natural, EmergencIA entiende, transcribe la llamada a texto y clasifica las emociones que se encontraron con la tonalidad de la voz.
+El segundo paso es tokenizar y clasificar al llamante, su situación, la ubicación del incidente, las emociones encontradas durante la llamada y realizar una evaluación general del servicio apropiado que la víctima pueda necesitar.
+EmergencIA finalmente aloca todos los casos en un sencillo interfaz para el operador, donde los casos son visibles, organizados por riesgo y se pueden atender por parte de las autoridades.
+
 ### Funcionalidades Clave
 
 1. **Transcripción de Llamadas:** El sistema transcribe las llamadas de emergencia en tiempo real utilizando Google Cloud Speech, convirtiendo la voz del llamador en texto.
@@ -50,7 +56,10 @@ npm start
 
 ## Equipo
 
-- Aqui van a ir nuestros nombres / githubs
+- [Ramiro Garza](https://github.com/garrza)
+- Alberto Tamez
+- Saul Delgado
+- Adolfo Gonzalez
 
 ## Contribuciones
 
