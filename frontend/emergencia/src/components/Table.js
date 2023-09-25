@@ -38,6 +38,9 @@ function customTable() {
             </TableHead>
             <TableBody>
                 <CustomRow />
+                <CustomRow />
+                <CustomRow />
+                <CustomRow />
             </TableBody>
         </Table>
     </TableContainer>
