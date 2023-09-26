@@ -59,7 +59,7 @@ npm start
 - [Ramiro Garza](https://github.com/garrza)
 - Alberto Tamez
 - Saul Delgado
-- Adolfo Gonzalez
+- [Adolfo Gonzalez](https://github.com/AdolfoGzz)
 
 ## Contribuciones
 
