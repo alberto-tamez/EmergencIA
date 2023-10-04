@@ -55,9 +55,9 @@ function StatusSwitch({ status }) {
   }
 }
 
-function Status() {
+function Status(props) {
   const [counter, setCounter] = useState(1);
-
+  const action = props.action;
   const counterIncrease = () => {
     if (counter < 4) {
       setCounter(counter + 1); // Update the state to trigger a re-render
@@ -70,16 +70,19 @@ function Status() {
     <Box
       sx={{
         display: 'flex',
-        border: 1,
-        width: 175,
+        width: 150,
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'column',
+        gap: 1,
       }}
       onClick={counterIncrease}
+      style={{cursor:'pointer'}}
     >
       <Box sx={emocionStyle}>
         <StatusSwitch status={counter} />
       </Box>
+      <Typography style={{fontSize: 15}}>{action}</Typography>
     </Box>
   );
 }

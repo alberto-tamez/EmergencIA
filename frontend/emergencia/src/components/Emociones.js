@@ -1,19 +1,43 @@
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 
-const emocion1 = 'Tristeza';
-const emocion2 = 'Miedo';
-const emocion3 = 'Enojo';
+const emocion1 = 'tristeza';
+const emocion2 = 'sorpresa';
+const emocion3 = 'enojo';
 
-function getRandomColor() {
-  // Generate a random color in hexadecimal format
-  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+function capitalizeFirstLetter(str) {
+  // Check if the input string is empty or null
+  if (!str) return '';
+
+  // Capitalize the first letter and concatenate the rest of the string
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function Emociones() {
-  const randomColor1 = getRandomColor();
-  const randomColor2 = getRandomColor();
-  const randomColor3 = getRandomColor();
+
+function getColor(emocion) {
+  var dictionary = {
+      'alivio': '#00FF00',
+      'alegria': '#FFD700',
+      'amor': '#FF1493',
+      'sorpresa': '#4B0082',
+      'neutral': '#808080',
+      'felicidad': '#32CD32',
+      'enojo': '#FF0000',
+      'tristeza': '#0000FF',
+      'miedo': '#FFA500',
+      'asco': '#8B0000',
+      'negativo': '#800080',
+      'preocupacion': '#FFFF00',
+      'odio': '#800000',
+  };
+  return dictionary[emocion];
+}
+
+function Emociones(props) {
+  
+  const color1 = getColor(props.emociones[0]);  
+  const color2 = getColor(props.emociones[1]);
+  const color3 = getColor(props.emociones[2]);
 
   const emocionStyle = {
     height: 30,
@@ -37,26 +61,25 @@ function Emociones() {
     <Box
       sx={{
         height: 150,
-        width: 250,
+        width: 150,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
         gap: 1,
-        border: 1,
       }}
     >
       <Box sx={emocionStyle}>
-        <Box sx={colorStyle(randomColor1)}></Box>
-        <Typography>{emocion1}</Typography>
+        <Box sx={colorStyle(color1)}></Box>
+        <Typography>{capitalizeFirstLetter(emocion1)}</Typography>
       </Box>
       <Box sx={emocionStyle}>
-        <Box sx={colorStyle(randomColor2)}></Box>
-        <Typography>{emocion2}</Typography>
+        <Box sx={colorStyle(color2)}></Box>
+        <Typography>{capitalizeFirstLetter(emocion2)}</Typography>
       </Box>
       <Box sx={emocionStyle}>
-        <Box sx={colorStyle(randomColor3)}></Box>
-        <Typography>{emocion3}</Typography>
+        <Box sx={colorStyle(color3)}></Box>
+        <Typography>{capitalizeFirstLetter(emocion3)}</Typography>
       </Box>
     </Box>
   );

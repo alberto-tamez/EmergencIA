@@ -5,17 +5,18 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 export default class Maps extends Component {
   render() {
     const apiKey = "AIzaSyD0-NXj_4PCe3F22tEmCGIod0D585Jgec8";
+    let dir='Av Calzada del Valle, SPGG, N.L.';
 
     return (
       <div className="container">
-        <div style={{ height: "400px", width: "100%" }}>
+        <div style={{ height: "120px", width: "300px" }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: apiKey }}
             defaultCenter={{
               lat: 25.651619148656884,
               lng: -100.28969426686491,
             }}
-            defaultZoom={11.90}
+            defaultZoom={10.60}
           >
             {/* Marcador Rojo */}
             <div
@@ -43,6 +44,7 @@ export default class Maps extends Component {
               />
             </div>
           </GoogleMapReact>
+          <div style={{padding: '5px 0 5px 0'}}>Direccion: {dir}</div>
         </div>
       </div>
     );

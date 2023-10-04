@@ -1,8 +1,4 @@
-// import Emociones from "./Emociones";
-// import Status from "./Status";
-// import Box from '@mui/material/Box';
-// import NivelRiesgo from "./NivelRiesgo";
-// import Maps from "./Mapa.js";
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
+import CustomRow from './CustomRow';
 
 const tableHeaders = {
     fontWeight: 600,
@@ -20,6 +17,7 @@ const tableHeaders = {
 const cellCenter = {
     textAlign: 'center',
 }
+
 
 function customTable() {
   return (
@@ -39,7 +37,10 @@ function customTable() {
                 </TableRow>
             </TableHead>
             <TableBody>
-                <TableRow></TableRow>
+                <CustomRow />
+                <CustomRow />
+                <CustomRow />
+                <CustomRow />
             </TableBody>
         </Table>
     </TableContainer>
